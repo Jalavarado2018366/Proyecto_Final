@@ -9,14 +9,18 @@ var UserSchema = Schema({
     Tweets: [{
         informacion: String,
         reply: [{
-            respuesta:String,
-            Usuario_que_Respondio: { type: Schema.ObjectId, ref: 'user'}
+            respuesta:String
         }],
         Like: Number,
-        dislike: Number
+        usuariosQueLeDieronLike:[{ 
+            usuario: { type: Schema.ObjectId, ref: 'user'}
+         }],
+         Creador_del_Tweet:String,
+         cantidad_de_Respuestas: Number,
+         cantidad_de_Retweets: Number
     }],
     Follow: [{
-        Siguiendo: { type: Schema.ObjectId, ref: 'user'}
+        nombreS: String
     }],
 
 })
